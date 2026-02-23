@@ -1,0 +1,33 @@
+mutation Signup {
+  signup(input: { name: "John", email: "john@example.com", password: "secret" }) {
+    accessToken
+    developer { id name email }
+  }
+}
+
+mutation Login {
+  login(input: { email: "john@example.com", password: "secret" }) {
+    accessToken
+    developer { id }
+  }
+}
+
+mutation Refresh {
+  refreshToken {
+    accessToken
+    developer { id }
+  }
+}
+
+mutation Logout {
+  logout
+}
+
+query Me {
+  me {
+    id name email
+  }
+}
+
+
+Make sure to add Authorization header for query and credentials:include
