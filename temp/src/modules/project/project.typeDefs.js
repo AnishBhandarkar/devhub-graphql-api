@@ -29,15 +29,17 @@ input UpdateProjectInput {
     liveUrl: String
 }
 
-type Query {
+extend type Query {
     project(id: ID!): Project
     projects(developerId: ID): [Project!]!
 }
 
-type Mutation {
+extend type Mutation {
     createProject(input: CreateProjectInput!): Project!
     updateProject(id: ID!, input: UpdateProjectInput!): Project!
     deleteProject(id: ID!): Boolean!
+    starProject(projectId: ID!): Project!
+    unstarProject(projectId: ID!): Project!
 }
 `;
 

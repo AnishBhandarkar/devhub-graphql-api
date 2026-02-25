@@ -19,7 +19,7 @@ input LoginInput {
 }
 
 
-type Mutation {
+extend type Mutation {
     signup(input: SignupInput!): AuthPayLoad!
     login(input: LoginInput!): AuthPayLoad!
     logout: Boolean!

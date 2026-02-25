@@ -7,28 +7,28 @@ type Developer {
     bio: String!
     skills: [String!]
     avatarUrl: String!
-    followers: [Developer!]
-    following: [Developer!]
+    followers: [Developer!]!
+    following: [Developer!]!
     createdAt: String!
     updatedAt: String!
 }
 
 
 input UpdateDeveloperInput {
-    bio: String
+    bio: String!
     skills: [String!]
-    avatarUrl: String
+    avatarUrl: String!
 }
 
 
-type Query {
+extend type Query {
     me: Developer
     developer(id: ID!): Developer
     developers: [Developer!]
 }
 
 
-type Mutation {
+extend type Mutation {
     updateDeveloper(input: UpdateDeveloperInput!): Developer
     deleteDeveloper: Boolean
     followDeveloper(developerId: ID!): Developer
