@@ -23,8 +23,32 @@ extend type Mutation {
     signup(input: SignupInput!): AuthPayLoad!
     login(input: LoginInput!): AuthPayLoad!
     logout: Boolean!
-    refresh: AuthPayload!
+    refresh: AuthPayLoad!
 }
 `;
 
 module.exports = typeDefs;
+
+/*
+mutation {
+  signup(
+    input: {
+      name: "lol"
+      email: "lol"
+      password: "lol"
+    }
+  ) {
+    accessToken
+    developer {
+      id
+      name
+      email
+    }
+  }
+}
+
+
+
+
+
+*/

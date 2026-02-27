@@ -5,7 +5,7 @@ require('dotenv').config();
  */
 const setRefreshTokenCookie = (res, token) => {
   res.cookie('refreshToken', token, {
-    httpOnly: true,
+    // httpOnly: true,
     secure: process.env.NODE_ENV === "production", // only send over HTTPS in production
     sameSite: 'lax',    // adjust as needed (strict/lax)
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days (should match REFRESH_TOKEN_EXPIRY)
@@ -18,7 +18,7 @@ const setRefreshTokenCookie = (res, token) => {
  */
 const clearRefreshTokenCookie = (res) => {
   res.clearCookie('refreshToken', {
-    httpOnly: true,
+    // httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: 'lax',
     path: '/graphql',

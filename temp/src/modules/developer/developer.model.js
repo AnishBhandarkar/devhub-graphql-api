@@ -23,7 +23,7 @@ const developerSchema = new Schema(
         skills: [String],
         avatarUrl: {
             type: String,
-            default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPGiYz_up_5JS0SljbyfNRBWdvYFAgOTE1YA&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCx2zwgur_ln6NpOJJRsenBF2a8QXWko__w&s"
+            default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPGiYz_up_5JS0SljbyfNRBWdvYFAgOTE1YA&s"
         },
         followers: [{
             type: Schema.Types.ObjectId,

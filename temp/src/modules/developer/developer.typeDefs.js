@@ -4,20 +4,21 @@ type Developer {
     id: ID!
     name: String!
     email: String!
-    bio: String!
+    bio: String
     skills: [String!]
     avatarUrl: String!
-    followers: [Developer!]!
-    following: [Developer!]!
+    followers: [Developer!]
+    following: [Developer!]
+    projects: [Project!]
     createdAt: String!
     updatedAt: String!
 }
 
 
 input UpdateDeveloperInput {
-    bio: String!
+    bio: String
     skills: [String!]
-    avatarUrl: String!
+    avatarUrl: String
 }
 
 

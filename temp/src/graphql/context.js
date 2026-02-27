@@ -14,10 +14,10 @@ const context = async ({ req, res }) => {
 
       const decoded = jwt.verify(
         accessToken,
-        process.env.JWT_ACCESS_SECRET
+        process.env.ACCESS_TOKEN_SECRET
       );
 
-      developer = await Developer.findById(decoded.userId).select("-password");
+      developer = await Developer.findById(decoded.developerId).select("-password");
 
       // Optional: if user deleted but token still exists
       if (!developer) {
