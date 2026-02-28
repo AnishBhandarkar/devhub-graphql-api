@@ -104,22 +104,34 @@ const resolvers = {
     },
 
     Developer: {
-        followers: asyncHandler(async (parent) => {
+        followers: asyncHandler(async (parent, _, { loaders }) => {
+            /*
             return await Developer.find({
                 _id: { $in: parent.followers }
             }).select("-password");
+            */
+
+            return await loaders.developerLoader.loadMany(parent.followers);
         }),
 
-        following: asyncHandler(async (parent) => {
+        following: asyncHandler(async (parent, _, { loaders }) => {
+            /*
             return await Developer.find({
                 _id: { $in: parent.following }
             }).select("-password");
+            */
+
+            return await loaders.developerLoader.loadMany(parent.following);
         }),
 
-        projects: asyncHandler(async (parent) => {
+        projects: asyncHandler(async (parent, _, { loaders }) => {
+            /*
             return await Project.find({
                 developer: parent._id
             });
+            */
+
+            return await loaders.projectLoader.load(parent._id);
         })
     }
 }

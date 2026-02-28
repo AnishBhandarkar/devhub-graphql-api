@@ -1,8 +1,14 @@
 const app = require('./src/app');
-const env = require('./src/config/env');
+const connectDB = require('./src/config/dbConfig');
+require('dotenv').config();
 
-const PORT = env.port;
+const PORT = process.env.PORT | 4000;
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/graphql`);
-});
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}/graphql`);
+    })
+}).catch((err) => {
+    console.error('Failed to start the server: ', err);
+    process.exit(1);
+})

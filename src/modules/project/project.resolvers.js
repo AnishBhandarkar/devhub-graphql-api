@@ -117,14 +117,22 @@ const resolvers = {
     },
 
     Project: {
-        developer: asyncHandler(async (parent) => {
+        developer: asyncHandler(async (parent, _, { loaders }) => {
+            /*
             return await Developer.findById(parent.developer).select('-password');
+            */
+
+            return await loaders.developerLoader.load(parent.developer);
         }),
 
-        stars: asyncHandler(async (parent) => {
+        stars: asyncHandler(async (parent, _, { loaders }) => {
+            /*
             return await Developer.find({
                 _id: { $in: parent.stars }
             }).select('-password');
+            */
+
+            return await loaders.developerLoader.loadMany(parent.stars);
         })
     }
 }

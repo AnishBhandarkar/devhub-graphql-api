@@ -10,7 +10,7 @@ const generateAccessToken = (developer) => {
             name: developer.name
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: '15m' }
+        { expiresIn: process.env.ACCESS_TOKEN_EXPIRY }
     );
 };
 
