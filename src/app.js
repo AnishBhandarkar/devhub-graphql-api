@@ -4,10 +4,13 @@ const typeDefs = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
 const context = require('./graphql/context');
 const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
 
 const express = require('express');
 
 const app = express();
+
+app.use(helmet());
 
 app.use(cookieParser());
 app.use(express.json());
